@@ -1,0 +1,49 @@
+---
+title: "MA_Results"
+author: "Author"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+### Choice cards
+ 
+The HTML choice cards used in the survey are available in an online repository at ENTER_ZENODO_REPOSITORY_DOI_HERE. 
+
+The choice cards can be inspected via a Shiny app using a few brief lines of R code. To do so, it is necessary to first install and load required functions from the ready4, ready4use and mychoice packages.
+
+```{r echo=T, eval=FALSE}
+# Uncomment the next line if you do not have the mychoice package installed.
+# devtools::install_github("ready4-dev/mychoice")
+```
+
+
+```{r echo=T, eval=FALSE}
+library(ready4)
+library(ready4use)
+library(mychoice)
+```
+
+Once these packages are installed and loaded, the following lines of code will download a file with the survey design data, including the HTML code for the choice cards.
+
+```{r echo=T, eval=FALSE}
+dce_design_ls <- ingest(Ready4useRepos(dv_nm_1L_chr = "ENTER_DATAVERSE_DATASET_NAME", 
+                      dv_ds_nm_1L_chr = "ENTER_DOI", 
+                      dv_server_1L_chr = "dataverse.harvard.edu"),
+       fls_to_ingest_chr = "DDD_final_dce_design_ls",
+       metadata_1L_lgl = F)
+```
+
+Once that file has been loaded into memory, it is possible to launch the Shiny app and preview the choice cards according to the blocks to which they were assigned. Note, due to randomisation, the sequence of choice sets in each block are ordered differently to that of the final design matrix.
+
+```{r echo=T, eval=FALSE}
+launch_survey_preview(dce_design_ls,
+                      block_1L_int = 1)
+```
+
+```{r echo = T, eval=FALSE}
+launch_survey_preview(dce_design_ls,
+                      block_1L_int = 2)
+```
+
+
+

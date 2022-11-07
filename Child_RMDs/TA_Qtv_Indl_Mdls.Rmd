@@ -1,0 +1,29 @@
+---
+title: "Temlplate for Reporting Mixed Models With Individual Characteristics"
+output: html_document
+date: '2022-11-04'
+---
+
+`r officer::run_pagebreak()`
+\newpage
+
+```{r echo=FALSE, eval= T, tab.cap=paste0("Mixed Logit Model with ",{{characteristics_1L_chr}}," individual characteristics (estimated with gmnl package)")}
+mdls_ls$mixl_mdl_ls[[{{idx_1L_int}}]] %>%
+  print_tfd_mdl_smry(caption_1L_chr = knitr::opts_current$get("tab.cap"),
+                     confidence_intvl_int = 6:7,
+                     dce_design_ls = dce_design_ls,
+                     mdl_params_ls = mdl_params_ls,
+                     records_ls = records_ls,
+                     digits_1L_int = params$X@digits_int,
+                     opt_out_nm_1L_chr = "Opt out")
+```
+
+```{r echo=FALSE, eval=F, tab.cap=paste0("Performance of Mixed Logit Model with individual ",{{characteristics_1L_chr}}," characteristics (estimated with gmnl package)")}
+make_mdl_smry(mdls_ls$mixl_mdl_ls[[{{idx_1L_int}}]], 
+              return_1L_chr = "performance") %>% 
+  kableExtra::kbl(booktabs = T, longtable = T, 
+                  caption = knitr::opts_current$get("tab.cap"))
+```
+
+`r officer::run_pagebreak()`
+\newpage

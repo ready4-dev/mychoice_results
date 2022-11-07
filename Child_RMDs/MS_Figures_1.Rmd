@@ -1,10 +1,29 @@
 ---
 title: "MS_Figures_1"
-author: "Matthew Hamilton"
-date: "28/01/2021"
+author: "Author"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r fig1, fig.cap=paste0("Distribution of ",results_ls$study_descs_ls$health_utl_nm_1L_chr," domains"),echo=F, out.width = "400px"}
-knitr::include_graphics(results_ls$paths_to_figs_ls$combined_utl)
+```{r echo=FALSE, lcfig, fig.cap="Cofficient variation by class in basic latent class model", message=F, out.width = "600px"}
+lc_smry_tb <- make_mdl_smry(mdls_ls$lc_mdl) %>%
+  transform_mdl_smry(dce_design_ls = dce_design_ls,
+                     records_ls = records_ls,
+                     confidence_intvl_int = 6:7,
+                     digits_1L_int = params$X@digits_int)  
+pd <- ggplot2::position_dodge(width=0.2)
+ggplot2::ggplot(lc_smry_tb %>%
+  dplyr::mutate(lower = Estimate - 1.96*`Std. Error`,
+                upper = Estimate + 1.96*`Std. Error`) %>%
+  dplyr::filter(Class %in% paste0("Class ",1:2)), ggplot2::aes(Parameter,Estimate, color=Class)) +
+  ggplot2::geom_point(ggplot2::aes(shape=Class),size=4, position=pd) +
+  ggplot2::coord_flip() +
+  ggplot2::facet_wrap(~Concept, scales = "free") +
+  ggplot2::scale_color_manual(name="Class",values=c("coral","steelblue")) +
+  ggplot2::scale_shape_manual(name="Class",values=c(17,19)) +
+  ggplot2::theme_bw() +
+  ggplot2::geom_errorbar(ggplot2::aes(ymin=lower,ymax=upper),width=0.1,position=pd)  +
+  ggplot2::xlab(NULL) +
+  ggplot2::ylab(NULL) +
+  ggplot2::theme(legend.position="bottom")
 ```

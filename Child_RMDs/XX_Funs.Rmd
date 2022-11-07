@@ -1,14 +1,22 @@
 ---
-title: "MA_Results"
-author: "Matthew Hamilton"
-date: "13/10/2020"
+title: "XX_Funs"
+author: "Author"
+date: "`r Sys.Date()`"
 output: html_document
 ---
-```{r echo = F}
-library(officedown)
-library(specific)
-```
-```{r}
 
+```{r}
+## Third party function
+## Source: https://stackoverflow.com/questions/49015578/space-after-every-five-rows-in-kable-output-with-booktabs-option-in-r-markdown
+linesep <- function(x,y=character()){
+  if(!length(x))
+    return(y)
+  linesep(x[-length(x)], c(rep('',x[length(x)]-1),'\\addlinespace',y))  
+}
+```
+
+```{r message=FALSE, results='hide', warning=FALSE}
+# library(english)
+# library(Hmisc)
 ```
 

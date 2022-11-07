@@ -1,0 +1,65 @@
+---
+title: "TA_B_Attributes_Lvls"
+output: html_document
+date: '2022-06-07'
+---
+
+## Choice tasks
+
+### Design Matrices
+The initial design matrix used for the pilot study is reproduced in Table \@ref(tab:desmat1).
+
+```{r desmat1, tab.cap = "Pilot survey design matrix", tab.id = 'desmat1', results = 'asis'}
+dce_design_ls$efnt_dsn_ls[[1]]$design %>%
+  tibble::as_tibble() %>%
+      kableExtra::kbl(booktabs = T, longtable = T,
+                      caption = knitr::opts_current$get("tab.cap"),
+                      linesep = linesep(rep(length(dce_design_ls$choice_sets_ls$alternatives_chr),
+                                            nrow(dce_design_ls$efnt_dsn_ls[[1]]$design)/length(dce_design_ls$choice_sets_ls$alternatives_chr)))) %>%
+  kableExtra::footnote(general = make_dsn_mat_nms(dce_design_ls, grouping_1L_int = 2, idx_1L_int = 1, opt_out_nm_1L_chr = "Opt out"))
+```
+
+`r officer::run_pagebreak()`
+\newpage
+
+The simulated (i.e. derived from our prior coefficient values, not observed choice behaviour) probabilities of each choice response from the situations described by the pilot study design matrix are described in Table \@ref(tab:desmatprobs1).
+
+```{r desmatprobs1, tab.cap = "Simulated choice responses probabilities from pilot survey design matrix", tab.id = 'desmatprobs1', results = 'asis'}
+dce_design_ls$efnt_dsn_ls[[1]]$probs %>%
+  tibble::as_tibble(rownames = "Set") %>%
+  dplyr::mutate(Set = paste0("Set ", 1:dplyr::n())) %>%
+      kableExtra::kbl(booktabs = T, longtable = T,
+                      caption = knitr::opts_current$get("tab.cap")) 
+```
+
+`r officer::run_pagebreak()`
+\newpage
+
+The updated design matrix that was used to generate the choice tasks for the final survey instrument is reproduced in Table \@ref(tab:desmat2).
+
+```{r desmat2, tab.cap = "Final survey design matrix", tab.id = 'desmat2', results = 'asis'}
+# ceiling(length(rename_chr)/2)
+dce_design_ls$efnt_dsn_ls[[2]]$design %>%
+  tibble::as_tibble() %>%
+      kableExtra::kbl(booktabs = T, longtable = T,
+                      caption = knitr::opts_current$get("tab.cap"),
+                      linesep = linesep(rep(length(dce_design_ls$choice_sets_ls$alternatives_chr),
+                                            nrow(dce_design_ls$efnt_dsn_ls[[2]]$design)/length(dce_design_ls$choice_sets_ls$alternatives_chr)))) %>%
+  kableExtra::footnote(general = make_dsn_mat_nms(dce_design_ls, grouping_1L_int = 2, idx_1L_int = 2, opt_out_nm_1L_chr = "Opt out"))
+```
+
+
+`r officer::run_pagebreak()`
+\newpage
+
+The simulated (i.e. derived from our updated prior coefficient values, not observed choice behaviour) probabilities of each choice response from the situations described by the final study design matrix are described in Table \@ref(tab:desmatprobs2).
+
+```{r desmatprobs2, tab.cap = "Simulated choice responses probabilities from final survey design matrix", tab.id = 'desmatprobs2', results = 'asis'}
+dce_design_ls$efnt_dsn_ls[[2]]$probs %>%
+  tibble::as_tibble(rownames = "Set") %>%
+  dplyr::mutate(Set = paste0("Set ", 1:dplyr::n())) %>%
+      kableExtra::kbl(booktabs = T, longtable = T,
+                      caption = knitr::opts_current$get("tab.cap")) 
+```
+
+

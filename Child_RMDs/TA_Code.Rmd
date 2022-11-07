@@ -1,7 +1,7 @@
 ---
 title: "Code"
-author: "Matthew Hamilton"
-date: "22/01/2021"
+author: "Author"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 

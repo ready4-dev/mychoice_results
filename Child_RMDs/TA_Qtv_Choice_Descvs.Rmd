@@ -1,0 +1,20 @@
+---
+title: "Temlplate for Reporting Choice Responses"
+output: html_document
+date: '2022-11-04'
+---
+
+
+#### {{att_txt_1L_chr}}
+
+```{r echo=FALSE, eval= T, tab.cap=paste0("{{att_txt_1L_chr}}", " choice response frequencies")}
+descriptives_ls$choice_smrys_ls[[{{att_var_nm_1L_chr}}]]$table_tbl %>% tibble::as_tibble() %>% 
+  kableExtra::kbl(booktabs = T, longtable = T, 
+                  caption = knitr::opts_current$get("tab.cap")) 
+```
+```{r fig.cap=paste0("{{att_txt_1L_chr}}"," choice response proportions"), fig.align = 'center', echo=FALSE, message=F, out.width = "400px"}
+descriptives_ls$choice_smrys_ls[[{{att_var_nm_1L_chr}}]]$plot_plt
+```
+
+`r officer::run_pagebreak()`
+\newpage

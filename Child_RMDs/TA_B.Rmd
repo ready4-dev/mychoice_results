@@ -1,0 +1,25 @@
+---
+title: "TA_A_Focus_Grps"
+output: html_document
+date: '2022-06-07'
+---
+
+# Results supplement
+
+`r officer::run_pagebreak()`
+\newpage
+
+```{r child="../Child_RMDs/TA_B_Matrices.Rmd", echo=FALSE}
+```
+
+`r officer::run_pagebreak()`
+\newpage
+
+```{r child="../Child_RMDs/TA_Preview_Cards.Rmd", echo=FALSE}
+```
+
+`r officer::run_pagebreak()`
+\newpage
+
+```{r child="../Child_RMDs/TA_B_Qtv_Results.Rmd", echo=FALSE}
+```

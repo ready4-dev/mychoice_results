@@ -1,0 +1,34 @@
+---
+title: "Ingest Data"
+author: "Author"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r echo=FALSE, message=F, results='hide'}
+library(mychoice)
+```
+```{r echo=FALSE, eval=!is.null(params$X)}
+paths_ls<- params$Y$paths_ls
+```
+```{r echo=F}
+dce_design_ls <- params$Y$dce_design_ls## Need to change to get data from online repo
+```
+```{r echo=F}
+preprocessing_log_ls <- readRDS(paste0(paths_ls$Replication,"/preprocessing_log_ls.RDS")) 
+records_ls <- readRDS(paste0(paths_ls$Records,"/records_ls.RDS"))
+```
+```{r echo=F}
+descriptives_ls <- readRDS(paste0(paths_ls$Results,"/descriptives_ls.RDS")) 
+```
+```{r echo=F}
+mdl_params_ls <- readRDS(paste0(paths_ls$Replication,"/mdl_params_ls.RDS")) # Need to change to get data from online repo
+```
+```{r echo=F}
+mdls_ls <- readRDS(paste0(paths_ls$Models,"/mdls_ls.RDS"))
+```
+```{r echo=F}
+analysis_ls <- readRDS(paste0(paths_ls$Results,"/analysis_ls.RDS")) 
+```
+
+<!-- NOTE TO SELF: INCORPORATE TA_CODE.RMD -->
