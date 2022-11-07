@@ -1,5 +1,4 @@
-# Report results from a Discrete Choice Experiment implemented with the mychoice R package
-This RMarkdown program extends the R package mychoice (https://ready4-dev.github.io/mychoice/index.html) by providing a template for automatically authoring a results summary of a study implemented with the aid of mychoice functions.
+Report results from a Discrete Choice Experiment implemented with the mychoice R package.
 
 
 Suggested citation (bibTeX):
@@ -11,8 +10,12 @@ Suggested citation (bibTeX):
   year         = 2022,
   note         = {{Matthew Hamilton (2022). 
                    mychoice\_results: Report results from a Discrete Choice 
-                   Experiment implemented with the mychoice R package. Version
+                   Experiment implemented with the mychoice R package. Zenodo.
+                   https://doi.org/10.5281/zenodo.7297904. Version
                    0.1.0.0}},
-  version      = {0.1.0.0}
+  version      = {0.1.0.0},
+  doi          = {10.5281/zenodo.7297904},
+  url          = {https://doi.org/10.5281/zenodo.7297904}
 }
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7297904.svg)](https://doi.org/10.5281/zenodo.7297904)

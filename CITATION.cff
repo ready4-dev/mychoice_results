@@ -1,9 +1,10 @@
 cff-version: 1.2.0
-message: "Matthew Hamilton (2022). mychoice_results: Report results from a Discrete Choice Experiment implemented with the mychoice R package. Version 0.1.0.0"
+message: "Matthew Hamilton (2022). mychoice_results: Report results from a Discrete Choice Experiment implemented with the mychoice R package. Zenodo. https://doi.org/10.5281/zenodo.7297904. Version 0.1.0.0"
 authors:
   - family-names: "Hamilton"
     given-names: "Matthew"
     orcid: https://orcid.org/0000-0001-7407-9194
 title: "mychoice_results: Report results from a Discrete Choice Experiment implemented with the mychoice R package"
 version: 0.1.0.0
+doi: doi:10.5281/zenodo.7297904
 date-released: 2022-11-06
