@@ -5,7 +5,7 @@ This RMarkdown program extends the R package mychoice (https://ready4-dev.github
 Suggested citation (bibTeX):
 
 @software{hamilton_matthew_2022_6931146,
-  author       = {Hamilton, Matthewe},
+  author       = {Hamilton, Matthew},
   title        = {{mychoice\_results: Report results from a Discrete Choice Experiment implemented with the mychoice R package}},
   month        = nov,
   year         = 2022,
